@@ -36,7 +36,7 @@ class _TermsandcondationState extends State<Termsandcondation> {
                 text: "الشروط والأحكام الخاصة بنا",
                 style: TextStylesApp.font13rimarycolor600)
           ])),
-        )
+        ),
       ],
     );
   }

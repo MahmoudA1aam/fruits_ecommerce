@@ -1,7 +1,9 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:fruits_e_commerce/core/helper_functions/routes/on_generate_routes.dart';
 import 'package:fruits_e_commerce/core/helper_functions/routes/route_names.dart';
+import 'package:fruits_e_commerce/firebase_options.dart';
 
 import 'core/helper_functions/shard_pref_helper/shard_pref_helper.dart';
 import 'generated/l10n.dart';
@@ -9,6 +11,9 @@ import 'generated/l10n.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await SharedPreferenceUtils.init();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const FruitesECommerce());
 }
 
