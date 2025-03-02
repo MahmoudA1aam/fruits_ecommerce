@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:fruits_e_commerce/features/presentation/auth/login/ui/login_view.dart';
-import 'package:fruits_e_commerce/features/presentation/auth/register/ui/register_view.dart';
+import 'package:fruits_e_commerce/features/auth/presentation/login/ui/login_view.dart';
+import 'package:fruits_e_commerce/features/auth/presentation/register/ui/register_view.dart';
 
 import 'package:fruits_e_commerce/test.dart';
 
-import '../../../features/presentation/onboarding_view/onboarding_view.dart';
+import '../../../features/onboarding_view/presentation/ui/onboarding_view.dart';
 
-import '../../../features/presentation/splash/ui/splash_view.dart';
+import '../../../features/splash/presentation/ui/splash_view.dart';
 import 'route_names.dart';
 
 Route<dynamic> onGenerateRoute(RouteSettings settings) {

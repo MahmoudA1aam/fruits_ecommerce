@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:fruits_e_commerce/core/widgets/custom_button.dart';
-import 'package:fruits_e_commerce/features/presentation/auth/login/widgets/have_account.dart';
-import 'package:fruits_e_commerce/features/presentation/auth/login/widgets/or_divider.dart';
-import 'package:fruits_e_commerce/features/presentation/auth/login/widgets/social_login_button.dart';
+import 'package:fruits_e_commerce/features/auth/presentation/login/widgets/have_account.dart';
+import 'package:fruits_e_commerce/features/auth/presentation/login/widgets/or_divider.dart';
+import 'package:fruits_e_commerce/features/auth/presentation/login/widgets/social_login_button.dart';
 
 import '../../../../../core/helper_functions/routes/route_names.dart';
 import '../../../../../core/theming/text_style_app.dart';

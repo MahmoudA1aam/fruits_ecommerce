@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:fruits_e_commerce/core/theming/colors_app.dart';
 import 'package:fruits_e_commerce/core/widgets/custom_button.dart';
 import 'package:fruits_e_commerce/core/widgets/custom_text_from_field.dart';
-import 'package:fruits_e_commerce/features/presentation/auth/login/widgets/have_account.dart';
-import 'package:fruits_e_commerce/features/presentation/auth/register/widgets/termsandcondation.dart';
+import 'package:fruits_e_commerce/features/auth/presentation/login/widgets/have_account.dart';
+import 'package:fruits_e_commerce/features/auth/presentation/register/widgets/termsandcondation.dart';
 
 class RegisterViewBody extends StatefulWidget {
   const RegisterViewBody({super.key});

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fruits_e_commerce/core/theming/text_style_app.dart';
-import 'package:fruits_e_commerce/features/presentation/auth/register/widgets/custom_check_box.dart';
+import 'package:fruits_e_commerce/features/auth/presentation/register/widgets/custom_check_box.dart';
 
 class Termsandcondation extends StatefulWidget {
   Termsandcondation({super.key});

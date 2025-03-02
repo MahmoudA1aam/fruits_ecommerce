@@ -43,14 +43,12 @@ class _SplashViewBodyState extends State<SplashView> {
 
   void excuteNaviagtion() async {
     Future.delayed(const Duration(seconds: 3), () async {
-
       var isOnBoardingViewSeen =
           SharedPreferenceUtils.getDate(key: "IsOnBordingViewSeen");
       if (isOnBoardingViewSeen == true) {
         Navigator.pushReplacementNamed(context, RouteNames.loginView);
-      }
-     else{
-       Navigator.pushReplacementNamed(context, RouteNames.onboardingView);
+      } else {
+        Navigator.pushReplacementNamed(context, RouteNames.onboardingView);
       }
     });
   }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fruits_e_commerce/core/widgets/custom_app_bar.dart';
-import 'package:fruits_e_commerce/features/presentation/auth/register/widgets/register_view_body.dart';
+import 'package:fruits_e_commerce/features/auth/presentation/register/widgets/register_view_body.dart';
 
 class RegisterView extends StatelessWidget {
   const RegisterView({super.key});
