@@ -4,8 +4,8 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fruits_e_commerce/core/theming/text_style_app.dart';
 
-import '../../../../core/helper_functions/routes/route_names.dart';
-import '../../../../core/helper_functions/shard_pref_helper/shard_pref_helper.dart';
+import '../../../../core/service/routes/route_names.dart';
+import '../../../../core/service/shard_pref_sevice/shard_pref_service.dart';
 
 class PageviewItem extends StatelessWidget {
   const PageviewItem(

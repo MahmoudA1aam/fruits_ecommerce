@@ -2,12 +2,12 @@ import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:fruits_e_commerce/core/helper_functions/routes/route_names.dart';
+import 'package:fruits_e_commerce/core/service/routes/route_names.dart';
 import 'package:fruits_e_commerce/core/theming/colors_app.dart';
 import 'package:fruits_e_commerce/core/theming/text_style_app.dart';
 import 'package:fruits_e_commerce/features/onboarding_view/presentation/widgets/page_view_item.dart';
 
-import '../../../../core/helper_functions/shard_pref_helper/shard_pref_helper.dart';
+import '../../../../core/service/shard_pref_sevice/shard_pref_service.dart';
 import '../../../../core/widgets/custom_button.dart';
 
 class OnBoardingViewBody extends StatefulWidget {

@@ -4,7 +4,7 @@ import 'package:fruits_e_commerce/features/auth/presentation/login/widgets/have_
 import 'package:fruits_e_commerce/features/auth/presentation/login/widgets/or_divider.dart';
 import 'package:fruits_e_commerce/features/auth/presentation/login/widgets/social_login_button.dart';
 
-import '../../../../../core/helper_functions/routes/route_names.dart';
+import '../../../../../core/service/routes/route_names.dart';
 import '../../../../../core/theming/text_style_app.dart';
 import '../../../../../core/widgets/custom_text_from_field.dart';
 

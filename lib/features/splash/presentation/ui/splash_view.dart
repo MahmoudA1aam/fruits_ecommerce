@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:fruits_e_commerce/core/helper_functions/shard_pref_helper/shard_pref_helper.dart';
+import 'package:fruits_e_commerce/core/service/shard_pref_sevice/shard_pref_service.dart';
 
-import '../../../../core/helper_functions/routes/route_names.dart';
+import '../../../../core/service/routes/route_names.dart';
 
 class SplashView extends StatefulWidget {
   const SplashView({super.key});
