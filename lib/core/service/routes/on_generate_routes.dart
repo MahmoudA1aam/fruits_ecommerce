@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fruits_e_commerce/features/auth/presentation/login/ui/login_view.dart';
-import 'package:fruits_e_commerce/features/auth/presentation/register/ui/register_view.dart';
+import 'package:fruits_e_commerce/features/auth/presentation/signup/ui/signup_view.dart';
 
 import 'package:fruits_e_commerce/test.dart';
 
