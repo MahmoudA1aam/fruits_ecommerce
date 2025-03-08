@@ -3,7 +3,8 @@ import 'package:fruits_e_commerce/core/theming/text_style_app.dart';
 import 'package:fruits_e_commerce/features/auth/presentation/signup/widgets/custom_check_box.dart';
 
 class Termsandcondation extends StatefulWidget {
-  const Termsandcondation({super.key});
+  const Termsandcondation({super.key, required this.onChecked});
+  final ValueChanged<bool> onChecked;
 
   @override
   State<Termsandcondation> createState() => _TermsandcondationState();
@@ -20,6 +21,7 @@ class _TermsandcondationState extends State<Termsandcondation> {
           isChecked: acceptedonTerms,
           onChecked: (value) {
             acceptedonTerms = value;
+            widget.onChecked(value);
             setState(() {});
           },
         ),

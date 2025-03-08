@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruits_e_commerce/core/theming/colors_app.dart';
+import 'package:fruits_e_commerce/core/widgets/custom_build_error_bar.dart';
 import 'package:fruits_e_commerce/core/widgets/custom_button.dart';
 import 'package:fruits_e_commerce/core/widgets/custom_text_from_field.dart';
 import 'package:fruits_e_commerce/features/auth/presentation/login/widgets/have_account.dart';
@@ -22,6 +23,7 @@ class _RegisterViewBodyState extends State<SignupViewBody> {
   final TextEditingController nameController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
+  late bool isTermsAccepted = false;
 
   @override
   Widget build(BuildContext context) {
@@ -71,7 +73,11 @@ class _RegisterViewBodyState extends State<SignupViewBody> {
             const SizedBox(
               height: 15,
             ),
-            Termsandcondation(),
+            Termsandcondation(
+              onChecked: (value) {
+                isTermsAccepted = value;
+              },
+            ),
             const SizedBox(
               height: 15,
             ),
@@ -79,10 +85,18 @@ class _RegisterViewBodyState extends State<SignupViewBody> {
                 onPressed: () {
                   if (formKey.currentState!.validate()) {
                     formKey.currentState!.save();
-                    context.read<SignupCubit>().createUserWithemailAndPassword(
-                        email: emailController.text,
-                        password: passwordController.text,
-                        name: nameController.text);
+                    if (isTermsAccepted == true) {
+                      context
+                          .read<SignupCubit>()
+                          .createUserWithemailAndPassword(
+                              email: emailController.text,
+                              password: passwordController.text,
+                              name: nameController.text);
+                    } else {
+                      customBuildErrorBar(
+                          massege: "يرجى الموافقة على الشروط والأحكام",
+                          context: context);
+                    }
                   }
                 },
                 title: "إنشاء حساب جديد"),
