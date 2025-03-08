@@ -31,6 +31,21 @@ class AuthReposImpl extends AuthRepo {
       log("Expection in AuthReposImpl.createWithEmailAndPassword: ${e.toString()}");
       return left(SeverFailure("حدث خطا ما الرجاء المحاولة لاحقا"));
     }
-    // TODO: implement createUserWithEmailAndPassword
+  }
+
+  @override
+  Future<Either<Failure, UserEntity>> siginWithEmailAndPassword(
+      {required String email, required String password}) async {
+    try {
+      var user = await firebaseAuthService.signInWithEmailAndPassword(
+          email: email, password: password);
+      return right(UserModel.fromFirebaseUser(user));
+    } on CustomException catch (e) {
+      return Left(SeverFailure(e.message));
+      // TODO
+    } catch (e) {
+      log("Expection in AuthReposImpl.createWithEmailAndPassword: ${e.toString()}");
+      return left(SeverFailure("حدث خطا ما الرجاء المحاولة لاحقا"));
+    }
   }
 }

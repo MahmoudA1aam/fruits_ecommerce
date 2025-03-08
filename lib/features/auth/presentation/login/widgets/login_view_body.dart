@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruits_e_commerce/core/widgets/custom_button.dart';
+import 'package:fruits_e_commerce/features/auth/presentation/login/cubit/signin_cubit.dart';
 import 'package:fruits_e_commerce/features/auth/presentation/login/widgets/have_account.dart';
 import 'package:fruits_e_commerce/features/auth/presentation/login/widgets/or_divider.dart';
 import 'package:fruits_e_commerce/features/auth/presentation/login/widgets/social_login_button.dart';
@@ -16,7 +18,10 @@ class LoginViewBody extends StatefulWidget {
 }
 
 class _LoginViewBodyState extends State<LoginViewBody> {
-  TextEditingController controller = TextEditingController();
+  TextEditingController emailcontroller = TextEditingController();
+
+  TextEditingController passwordcontroller = TextEditingController();
+  GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   bool obscureText = true;
 
@@ -25,97 +30,109 @@ class _LoginViewBodyState extends State<LoginViewBody> {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 14),
       child: SingleChildScrollView(
-        child: Column(
-          children: [
-            const SizedBox(
-              height: 24,
-            ),
-            CustomTextFormField(
-              validator: (p0) {},
-              hintText: "اسم المستخدم",
-              controller: controller,
-              keyboardType: TextInputType.emailAddress,
-            ),
-            const SizedBox(
-              height: 24,
-            ),
-            CustomTextFormField(
-              validator: (p0) {},
-              hintText: "كلمة المرور ",
-              controller: controller,
-              obscureText: obscureText,
-              suffixIcon: IconButton(
-                  onPressed: () {
-                    obscureText = !obscureText;
-                    setState(() {});
-                  },
-                  icon: obscureText
-                      ? const Icon(
-                          Icons.visibility,
-                          color: Color(0XffC9CECF),
-                        )
-                      : const Icon(
-                          Icons.visibility_off,
-                          color: Color(0XffC9CECF),
-                        )),
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                Text("نسيت كلمة المرور؟",
-                    textAlign: TextAlign.end,
-                    style: TextStylesApp.font13Grey600
-                        .copyWith(color: const Color(0xff2D9F5D))),
-              ],
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            CustomButton(onPressed: () {}, title: "تسجيل دخول"),
-            const SizedBox(
-              height: 20,
-            ),
-            GestureDetector(
-              onTap: () {
-                Navigator.pushNamed(context, RouteNames.registerView);
-              },
-              child: const CreatAndNotHaveAccount(
-                textHave: "لا تمتلك حساب ؟",
-                creatAccount: " قم بإنشاء حساب",
+        child: Form(
+          key: formKey,
+          child: Column(
+            children: [
+              const SizedBox(
+                height: 24,
               ),
-            ),
-            const SizedBox(
-              height: 15,
-            ),
-            const OrDivider(),
-            const SizedBox(
-              height: 15,
-            ),
-            SocialLoginButton(
-              image: "assets/images/google_icon.svg",
-              title: "تسجيل دخول بواسطة جوجل",
-              onPressed: () {},
-            ),
-            const SizedBox(
-              height: 15,
-            ),
-            SocialLoginButton(
-              image: "assets/images/apple_icon.svg",
-              title: "تسجيل دخول بواسطة أبل",
-              onPressed: () {},
-            ),
-            const SizedBox(
-              height: 15,
-            ),
-            SocialLoginButton(
-              image: "assets/images/facebook_icon.svg",
-              title: "تسجيل دخول بواسطة فيسبوك",
-              onPressed: () {},
-            ),
-          ],
+              CustomTextFormField(
+                validator: (p0) {},
+                hintText: "اسم المستخدم",
+                controller: emailcontroller,
+                keyboardType: TextInputType.emailAddress,
+              ),
+              const SizedBox(
+                height: 24,
+              ),
+              CustomTextFormField(
+                validator: (p0) {},
+                hintText: "كلمة المرور ",
+                controller: passwordcontroller,
+                obscureText: obscureText,
+                suffixIcon: IconButton(
+                    onPressed: () {
+                      obscureText = !obscureText;
+                      setState(() {});
+                    },
+                    icon: obscureText
+                        ? const Icon(
+                            Icons.visibility,
+                            color: Color(0XffC9CECF),
+                          )
+                        : const Icon(
+                            Icons.visibility_off,
+                            color: Color(0XffC9CECF),
+                          )),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Text("نسيت كلمة المرور؟",
+                      textAlign: TextAlign.end,
+                      style: TextStylesApp.font13Grey600
+                          .copyWith(color: const Color(0xff2D9F5D))),
+                ],
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              CustomButton(
+                  onPressed: () {
+                    if (formKey.currentState!.validate()) {
+                      formKey.currentState!.save();
+                      context.read<SigninCubit>().siginWithEmailAndPassword(
+                          email: emailcontroller.text,
+                          password: passwordcontroller.text);
+                    }
+                  },
+                  title: "تسجيل دخول"),
+              const SizedBox(
+                height: 20,
+              ),
+              GestureDetector(
+                onTap: () {
+                  Navigator.pushNamed(context, RouteNames.registerView);
+                },
+                child: const CreatAndNotHaveAccount(
+                  textHave: "لا تمتلك حساب ؟",
+                  creatAccount: " قم بإنشاء حساب",
+                ),
+              ),
+              const SizedBox(
+                height: 15,
+              ),
+              const OrDivider(),
+              const SizedBox(
+                height: 15,
+              ),
+              SocialLoginButton(
+                image: "assets/images/google_icon.svg",
+                title: "تسجيل دخول بواسطة جوجل",
+                onPressed: () {},
+              ),
+              const SizedBox(
+                height: 15,
+              ),
+              SocialLoginButton(
+                image: "assets/images/apple_icon.svg",
+                title: "تسجيل دخول بواسطة أبل",
+                onPressed: () {},
+              ),
+              const SizedBox(
+                height: 15,
+              ),
+              SocialLoginButton(
+                image: "assets/images/facebook_icon.svg",
+                title: "تسجيل دخول بواسطة فيسبوك",
+                onPressed: () {},
+              ),
+            ],
+          ),
         ),
       ),
     );
