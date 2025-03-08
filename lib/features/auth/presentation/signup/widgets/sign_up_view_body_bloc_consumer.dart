@@ -14,8 +14,17 @@ class SignUpViewBodyBlocConsumer extends StatelessWidget {
     return BlocConsumer<SignupCubit, SignupCubitState>(
       listener: (context, state) {
         if (state is SignupCubitFaliure) {
-          ScaffoldMessenger.of(context)
-              .showSnackBar(SnackBar(content: Text(state.massege)));
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Row(
+                children: [
+                  Icon(Icons.error_outline_sharp),
+                  SizedBox(width: 10),
+                  Text(state.massege),
+                ],
+              ),
+            ),
+          );
         }
       },
       builder: (context, state) {

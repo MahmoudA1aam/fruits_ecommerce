@@ -26,7 +26,7 @@ class AuthReposImpl extends AuthRepo {
       return Left(SeverFailure(e.message));
       // TODO
     } catch (e) {
-      return left(SeverFailure("An error occured. please try again"));
+      return left(SeverFailure("حدث خطا ما الرجاء المحاولة لاحقا"));
     }
     // TODO: implement createUserWithEmailAndPassword
   }

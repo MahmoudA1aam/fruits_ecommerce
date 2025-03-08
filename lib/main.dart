@@ -1,6 +1,8 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:fruits_e_commerce/core/service/bloc_observer/custom_bloc_observer.dart';
 import 'package:fruits_e_commerce/core/service/get_it/get_it.dart';
 import 'package:fruits_e_commerce/core/service/routes/on_generate_routes.dart';
 import 'package:fruits_e_commerce/core/service/routes/route_names.dart';
@@ -13,6 +15,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   setupGetIt();
   await SharedPreferenceUtils.init();
+  Bloc.observer = CustomBlocObserver();
 
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
