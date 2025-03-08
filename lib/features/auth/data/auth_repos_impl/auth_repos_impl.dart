@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:dartz/dartz.dart';
 import 'package:fruits_e_commerce/core/errors/custom_exception.dart';
 
@@ -26,6 +28,7 @@ class AuthReposImpl extends AuthRepo {
       return Left(SeverFailure(e.message));
       // TODO
     } catch (e) {
+      log("Expection in AuthReposImpl.createWithEmailAndPassword: ${e.toString()}");
       return left(SeverFailure("حدث خطا ما الرجاء المحاولة لاحقا"));
     }
     // TODO: implement createUserWithEmailAndPassword
